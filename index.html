@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tototjc</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/all.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/v4-shims.css">
+    <script src="./js/jquery.min.js"></script>
+    <link href="./css/animate.css" rel="stylesheet">
+    <script src="./js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+  </head>
+  <body>
+  <!-- 下面是进入时的加载条 -->
+    <div class="loading">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    <!-- 下面是随机壁纸 -->
+    <script>
+        var picnum = parseInt(Math.random()*7+1);
+        document.write('<div class="bak" style="background-image: url(./img/'+picnum+'.jpg);"></div>');
+    </script>
+
+    <main>
+        <div class="content">
+        
+<!-- 下面是左边栏 -->
+        <div class="left">   
+          <section id="bar">
+            <div class="bar wow rollIn" data-wow-delay=1s>
+                <div class="avatar">
+                    <img src="./img/head.png">
+                </div>
+                <ul class="menu wow bounceInDown" data-wow-delay=1.7s>
+                    <li>
+                        <a goto="#home" class="active">HOME</a>
+                    </li>
+                    <li>
+                        <a goto="#contact">CONTACT</a>
+                    </li>
+                    <li>
+                        <a goto="#about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a goto="#donate">DONATE</a>
+                    </li>
+                </ul>
+        <div class="copyright">
+        Copyright ©
+		<script>
+		document.write(new Date().getFullYear())
+        </script>
+        <a href="http://blog.tototjc.top:8081/" target="_blank">
+        <p>Tototjc</p>
+        </a>
+        All Rights Reserved.
+        </div>
+            </div>
+       </section>
+       </div>
+ <!-- 下面是右边栏 -->
+            <div class="right">
+            <section id="index" class="active">
+          <ul class="menu">
+              <a goto="#bar">从这里开始了解我吧</a>
+          </ul>
+        </section>
+            <!-- 下面是链接页 -->
+                <section id="home">
+                    <h1>Tototjc</h1>
+                    
+                </section>
+                <!-- 下面是近期文章 -->
+                <section id="contact">
+                    <h1>捕抓方式</h1>
+                    <div class="items">
+                        <a href="http://blog.tototjc.top:8081/" target="_blank" rel="noopener">
+                            <i class="fa fa-home"></i>
+                            <span>Blog</span>
+                        </a>
+                        <a href="https://github.com/tototjc" target="_blank" rel="noopener">
+                            <i class="fa fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:tanjc2004@outlook.com" target="_blank" rel="noopener">
+                            <i class="fa fa-envelope"></i>
+                            <span>E-Mail</span>
+                        </a>
+                        <a href="https://twitter.com/JCTan53932125" target="_blank" rel="noopener">
+                            <i class="fa fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="https://www.facebook.com/jc.tan.56829446" target="_blank" rel="noopener">
+                            <i class="fa fa-facebook-official"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://weibo.com/u/5875476364/" target="_blank" rel="noopener">
+                            <i class="fa fa-weibo"></i>
+                            <span>Weibo</span>
+                        </a>
+                    </div>
+                </section>
+                <!-- 下面是关于 -->
+                <section id="about">
+                    <h1>关于</h1>
+                    <p>
+                        我，一枚普普通通的TJC<br>
+                        学生党 / 没啥特长 / 伪技术宅 / <del>变态</del> / 二次元 / 摸鱼中等打捞<br>
+                        miku赛高~\(≧▽≦)/~ / 瞎折腾 / 搞事情 / <a href="http://blog.tototjc.top:8081/about.html" target="_blank">More...</a>
+                    </p>
+                </section>
+                <!-- 下面是捐赠页 -->
+                <section id="donate">
+                    <h1>来给正在吃土的TJC投食呗！</h1>
+                    <div class="donate-img-box">
+                        <a href="https://pay.fczbl.vip" target="_blank" rel="noopener">
+                            <img src="./img/donate.jpg" >
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+      
+        
+        
+
+<!-- 下面是移动模式下的页脚 -->
+        <footer>
+            <div class="copyright-mobile">
+        Copyright ©
+		<script>
+		document.write(new Date().getFullYear())
+        </script>
+        <a href="http://blog.tototjc.top:8081/" target="_blank">
+        Tototjc
+        </a>
+        All Rights Reserved.
+
+            </div>
+        </footer>
+    </main>
+    <script src="./js/main.js"></script>
+    <script>
+$(function(){
+    $('.water-btn').click(function(e){
+        var _this = $(this);
+        var px = e.offsetX;
+        var py = e.offsetY;
+
+        var id=parseInt(Math.random()*1000);
+        _this.append('<div class="water-btn-style" style="top:'+py+'px;left:'+px+'px;background:'+_this.attr('data-clickColor')+'" id="wb_'+id+'"></div>');
+        setTimeout(function(){
+            _this.find('#wb_'+id).remove()
+        },3000)
+    });
+});
+</script>
+  </body>
+</html>
