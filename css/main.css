@@ -376,7 +376,7 @@ footer {
 
 
 /* Hack for mobile */
-@media(max-width:768px) {
+@media(max-width:1200px) {
     /* Main */
 	.right {
 		overflow: hidden
