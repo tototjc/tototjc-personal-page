@@ -2,26 +2,31 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta http-equiv="X-UA-Compatible" content="edge" />
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="pragma" content="no-store">
+    <meta http-equiv="cache-control" content="no-store">
+    <meta http-equiv="expires" content=""> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
     <meta name="description" content="TJC's Home"> 
     <title>Tototjc</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/all.css">
     <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/v4-shims.css">
-    <script src="./js/jquery.min.js"></script>
     <link href="./css/animate.css" rel="stylesheet">
+    <script src="./js/jquery-3.4.1.js"></script>
     <script src="./js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
   </head>
-  <body>
+  <body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
   <!-- 下面是进入时的加载条 -->
     <div class="loading">
         <div class="spinner">
@@ -50,42 +55,67 @@
                 </div>
                 <ul class="menu wow bounceInDown" data-wow-delay=1.7s>
                     <li>
-                        <a goto="#home" class="active">HOME</a>
+                        <a goto="#home"><i class="fa fa-home"></i>&nbsp;HOME</a>
                     </li>
                     <li>
-                        <a goto="#contact">CONTACT</a>
+                        <a goto="#contact"><i class="fa fa-comments-o"></i>&nbsp;CONTACT</a>
                     </li>
                     <li>
-                        <a goto="#about">ABOUT</a>
+                        <a goto="#about"><i class="fa fa-id-card-o"></i>&nbsp;ABOUT</a>
                     </li>
                     <li>
-                        <a goto="#donate">DONATE</a>
+                        <a goto="#donate"><i class="fa fa-smile-o"></i>&nbsp;DONATE</a>
                     </li>
                 </ul>
         <div class="copyright">
-        Copyright ©
+        <p>Copyright ©
 		<script>
 		document.write(new Date().getFullYear())
-        </script>
+        </script></p>
         <a href="http://blog.tototjc.top:8081/" target="_blank">
-        <p>Tototjc</p>
+        Tototjc
         </a>
-        All Rights Reserved.
+        <p>All Rights Reserved.</p>
         </div>
             </div>
        </section>
        </div>
  <!-- 下面是右边栏 -->
+            <!-- 下面是首页 -->
             <div class="right">
             <section id="index" class="active">
           <ul class="menu">
               <a goto="#bar">从这里开始了解我吧</a>
           </ul>
+          <h1 class="wow bounceInDown" data-wow-delay=1.25s>
+          <script>
+		  var optm = prompt('请问我应该怎么称呼你?');
+           if(optm == null||optm =="")
+            {
+			var result = confirm("什么？你还没有输入？你确定要这么做吗？");
+             if(result){//true
+              alert('好吧，那么请允许我用null来称呼你。');
+              } else {//false
+              location.reload();
+              }
+            } else {
+			  alert('好的，' + optm + '！');
+			  }               
+           document.write("你好，" + optm + "！")
+          </script>
+           <p>欢迎来到TJC的世界~~</p>
+          </h1>
         </section>
             <!-- 下面是链接页 -->
-                <section id="home" class="wow bounceInDown" data-wow-delay=0.7s>
-                    <h1>Tototjc</h1>
-                    
+                <section id="home">
+                    <h1 class="wow bounceInDown" data-wow-delay=0.7s>Tototjc的板报</h1>
+                    <div class="letter wow flipInX"  data-wow-delay=1s>
+	                 <h2>A Letter From a Distance</h2>
+	                  <p>
+                      From：TanJC&emsp;To：<script>document.write(optm)</script><br>
+                      Date：2019-09-01&emsp;Address：Tsankiang<br>
+                      </p>
+                    </div>
                 </section>
                 <!-- 下面是近期文章 -->
                 <section id="contact" class="wow fadeInDown" data-wow-delay=0.7s>
@@ -122,8 +152,9 @@
                     <h1>关于</h1>
                     <p>
                         我，一枚普普通通的TJC<br>
-                        学生党 / 没啥特长 / 伪技术宅 / <del>变态</del> / 二次元 / 摸鱼中等打捞<br>
-                        miku赛高~\(≧▽≦)/~ / 瞎折腾 / 搞事情 / <a href="http://blog.tototjc.top:8081/about.html" target="_blank">More...</a>
+                        身处祖国南端一隅，就读于某不知名高中<br>
+                        没啥特长 / 伪技术宅，爱瞎折腾，苣蒻 / 摸鱼中，等打捞 /<br>
+                        二次元 / <del>绅士</del> / miku赛高~\(≧▽≦)/~ / <a href="http://blog.tototjc.top:8081/about.html" target="_blank">More...</a>
                     </p>
                 </section>
                 <!-- 下面是捐赠页 -->
@@ -138,10 +169,6 @@
             </div>
         </div>
         
-      
-        
-        
-
 <!-- 下面是移动模式下的页脚 -->
         <footer>
             <div class="copyright-mobile">
@@ -158,20 +185,5 @@
         </footer>
     </main>
     <script src="./js/main.js"></script>
-    <script>
-$(function(){
-    $('.water-btn').click(function(e){
-        var _this = $(this);
-        var px = e.offsetX;
-        var py = e.offsetY;
-
-        var id=parseInt(Math.random()*1000);
-        _this.append('<div class="water-btn-style" style="top:'+py+'px;left:'+px+'px;background:'+_this.attr('data-clickColor')+'" id="wb_'+id+'"></div>');
-        setTimeout(function(){
-            _this.find('#wb_'+id).remove()
-        },3000)
-    });
-});
-</script>
   </body>
 </html>

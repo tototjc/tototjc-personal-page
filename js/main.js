@@ -14,9 +14,7 @@ function switchTo(target) {
 	$(target).addClass('active');
 }
 
-
-    <!--网站标题自动判断	设置/*-->
-
+<!--网站标题自动判断	设置/*-->
 var title = document.title;
 	// window 失去焦点 
 	window.onblur = function () {
@@ -35,3 +33,20 @@ $(document).ready(function() {
 	},
 	1500);
 });
+
+<!--首页按钮-->
+$(function(){
+    $('.water-btn').click(function(e){
+        var _this = $(this);
+        var px = e.offsetX;
+        var py = e.offsetY;
+
+        var id=parseInt(Math.random()*1000);
+        _this.append('<div class="water-btn-style" style="top:'+py+'px;left:'+px+'px;background:'+_this.attr('data-clickColor')+'" id="wb_'+id+'"></div>');
+        setTimeout(function(){
+            _this.find('#wb_'+id).remove()
+        },3000)
+    });
+});
+
+
