@@ -18,7 +18,6 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/all.css">
-    <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/v4-shims.css">
     <link href="./css/animate.css" rel="stylesheet">
     <script src="./js/jquery-3.4.1.js"></script>
     <script src="./js/wow.min.js"></script>
@@ -27,6 +26,8 @@
     </script>
   </head>
   <body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+  <!-- 弹出栏后面的遮罩（默认隐藏） -->
+  <div id="hidebg"></div>
   <!-- 下面是进入时的加载条 -->
     <div class="loading">
         <div class="spinner">
@@ -42,10 +43,36 @@
         var picnum = parseInt(Math.random()*7+1);
         document.write('<div class="bak" style="background-image: url(./img/'+picnum+'.jpg);"></div>');
     </script>
-
+    <!-- 下面是询问名称 -->
+           <script>
+		  var optm = prompt('请问我应该怎么称呼你?');
+           if(optm == null||optm =="")
+            {
+			var result = confirm("什么？你还没有输入？你确定要这么做吗？");
+             if(result){//true
+              alert('好吧，那么请允许我用null来称呼你。');
+              } else {//false
+              location.reload();
+              }
+            } else {
+			  alert('好的，' + optm + '！');
+			  }
+               </script>
+<!-- 下面是主要 -->
     <main>
-        <div class="content">
-        
+       <div class="content">
+       <!-- 下面是弹出栏（letter信） -->
+            <div id="hidebox" onClick="hide();">
+                    <div class="letter wow flipInX"  data-wow-delay=1s>
+	                  <p align="left">Dear <script>document.write(optm)</script>,</p>
+                      <p align="justify">Welcome to my website,TJC and his dream lie here</p>
+                      <p align="left">Best wishes to you!</p>
+                      <p align="right">Sincerely yours,<br>
+                      TanJC</p>           
+                      <p align="center">[点击关闭]</p>
+                    </div>
+             </div>
+                </section>
 <!-- 下面是左边栏 -->
         <div class="left">   
           <section id="bar">
@@ -55,16 +82,16 @@
                 </div>
                 <ul class="menu wow bounceInDown" data-wow-delay=1.7s>
                     <li>
-                        <a goto="#home"><i class="fa fa-home"></i>&nbsp;HOME</a>
+                        <a goto="#home"><i class="fas fa-home"></i>&nbsp;HOME</a>
                     </li>
                     <li>
-                        <a goto="#contact"><i class="fa fa-comments-o"></i>&nbsp;CONTACT</a>
+                        <a goto="#contact"><i class="fas fa-comments"></i>&nbsp;CONTACT</a>
                     </li>
                     <li>
-                        <a goto="#about"><i class="fa fa-id-card-o"></i>&nbsp;ABOUT</a>
+                        <a goto="#about"><i class="fas fa-id-card-alt"></i>&nbsp;ABOUT</a>
                     </li>
                     <li>
-                        <a goto="#donate"><i class="fa fa-smile-o"></i>&nbsp;DONATE</a>
+                        <a goto="#donate"><i class="fas fa-donate"></i>&nbsp;DONATE</a>
                     </li>
                 </ul>
         <div class="copyright">
@@ -86,63 +113,50 @@
             <section id="index" class="active">
           <ul class="menu">
               <a goto="#bar">从这里开始了解我吧</a>
-          </ul>
+          </ul>         
           <h1 class="wow bounceInDown" data-wow-delay=1.25s>
           <script>
-		  var optm = prompt('请问我应该怎么称呼你?');
-           if(optm == null||optm =="")
-            {
-			var result = confirm("什么？你还没有输入？你确定要这么做吗？");
-             if(result){//true
-              alert('好吧，那么请允许我用null来称呼你。');
-              } else {//false
-              location.reload();
-              }
-            } else {
-			  alert('好的，' + optm + '！');
-			  }               
            document.write("你好，" + optm + "！")
           </script>
            <p>欢迎来到TJC的世界~~</p>
+           <h5>本人擅长Ai、Fw、Fl、Br、 Ae、Pr、Id、Ps等软件的安装与卸载；精通 CSS、JavaScript、PHP、ASP、C、C＋＋、 C#、Java、Ruby、Perl、Lisp、python、 Objective-C、ActionScript、Pascal等单词拼写；熟悉Windows、Linux、Mac、 Android、IOS、WP8等系统的开关机；深谙英语六级，计算机二级，初级会计资格等等级考试的发卷收卷流程</h5>
           </h1>
         </section>
             <!-- 下面是链接页 -->
                 <section id="home">
-                    <h1 class="wow bounceInDown" data-wow-delay=0.7s>Tototjc的板报</h1>
-                    <div class="letter wow flipInX"  data-wow-delay=1s>
-	                 <h2>A Letter From a Distance</h2>
+                    <h1 class="wow bounceInDown" data-wow-delay=0.7s>Tototjc</h1>
+                    <h2>A Letter From a Distance</h2>
 	                  <p>
                       From：TanJC&emsp;To：<script>document.write(optm)</script><br>
                       Date：2019-09-01&emsp;Address：Tsankiang<br>
                       </p>
-                    </div>
-                </section>
+                    <div id="open" onClick="show();">[Click Here to OPEN]</div>
                 <!-- 下面是近期文章 -->
                 <section id="contact" class="wow fadeInDown" data-wow-delay=0.7s>
                     <h1>捕抓方式</h1>
                     <div class="items">
                         <a href="http://blog.tototjc.top:8081/" target="_blank" rel="noopener">
-                            <i class="fa fa-home"></i>
+                            <i class="fas fa-home"></i>
                             <span>Blog</span>
                         </a>
                         <a href="https://github.com/tototjc" target="_blank" rel="noopener">
-                            <i class="fa fa-github"></i>
+                            <i class="fab fa-github"></i>
                             <span>GitHub</span>
                         </a>
                         <a href="mailto:tanjc2004@outlook.com" target="_blank" rel="noopener">
-                            <i class="fa fa-envelope"></i>
+                            <i class="fas fa-envelope"></i>
                             <span>E-Mail</span>
                         </a>
                         <a href="https://twitter.com/JCTan53932125" target="_blank" rel="noopener">
-                            <i class="fa fa-twitter"></i>
+                            <i class="fab fa-twitter"></i>
                             <span>Twitter</span>
                         </a>
                         <a href="https://www.facebook.com/jc.tan.56829446" target="_blank" rel="noopener">
-                            <i class="fa fa-facebook-official"></i>
+                            <i class="fab fa-facebook-square"></i>
                             <span>Facebook</span>
                         </a>
                         <a href="https://weibo.com/u/5875476364/" target="_blank" rel="noopener">
-                            <i class="fa fa-weibo"></i>
+                            <i class="fab fa-weibo"></i>
                             <span>Weibo</span>
                         </a>
                     </div>
