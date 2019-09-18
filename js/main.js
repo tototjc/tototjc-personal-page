@@ -62,3 +62,14 @@ $(function(){
         },3000)
     });
 });
+
+<!--移动端禁止长按菜单-->
+document.oncontextmenu=function(e){
+
+    e.preventDefault();
+
+};
+
+node.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+  });
