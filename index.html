@@ -18,9 +18,11 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/all.css">
+	<link rel="stylesheet" href="./css/minireset.min.css">
     <link href="./css/animate.css" rel="stylesheet">
     <script src="./js/jquery-3.4.1.js"></script>
     <script src="./js/wow.min.js"></script>
+
     <script>
         new WOW().init();
     </script>
@@ -41,10 +43,11 @@
     <!-- 下面是随机壁纸 -->
     <script>
         var picnum = parseInt(Math.random()*7+1);
-        document.write('<div class="bak" style="background-image: url(./img/'+picnum+'.jpg);"></div>');
+        document.write('<div class="bak" style="background-image: url(https://api.ixiaowai.cn/api/api.php);"></div>');
     </script>
-    <!-- 下面是询问名称 -->
-           <script>
+	
+    <!--
+	<script>
 		  var optm = prompt('请问我应该怎么称呼你?');
            if(optm == null||optm =="")
             {
@@ -57,10 +60,14 @@
             } else {
 			  alert('好的，' + optm + '！');
 			  }
-               </script>
+    </script>
+     
+     
 <!-- 下面是主要 -->
     <main>
        <div class="content">
+       
+       
        <!-- 下面是弹出栏（letter信） -->
             <div id="hidebox" onClick="hide();">
                     <div class="letter wow flipInX"  data-wow-delay=1s>
@@ -74,7 +81,7 @@
              </div>
                 
 <!-- 下面是左边栏 -->
-        <div class="left">   
+        <div class="left">
           <section id="bar">
             <div class="bar wow rollIn" data-wow-delay=1s>
                 <div class="avatar">
@@ -99,30 +106,49 @@
 		<script>
 		document.write(new Date().getFullYear())
         </script></p>
-        <a href="http://blog.tototjc.top:8081/" target="_blank">
+        <a href="javascript:alert('
+						啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！
+						')" target="_blank">
         Tototjc
         </a>
         <p>All Rights Reserved.</p>
         </div>
             </div>
        </section>
+
        </div>
+       
+       
  <!-- 下面是右边栏 -->
-            <!-- 下面是首页 -->
             <div class="right">
-            <section id="index" class="active">
-          <ul class="menu">
-              <a goto="#bar">从这里开始了解我吧</a>
-          </ul>         
+            
+     <!-- 下面是首页 -->            
+        <section id="index" class="active">
+		<div class="my">
+          <div class="my-avatar shaky">
+           <img class="sparkle spin" src="./img/head.png">
+          </div>
+		</div>
+				   <br>
+				   <br>
           <h1 class="wow bounceInDown" data-wow-delay=1.25s>
-          <script>
-           document.write("你好，" + optm + "！")
-          </script>
-           <p>欢迎来到TJC的世界~~</p>
-           <h5>本人擅长Ai、Fw、Fl、Br、 Ae、Pr、Id、Ps等软件的安装与卸载；精通 CSS、JavaScript、PHP、ASP、C、C＋＋、 C#、Java、Ruby、Perl、Lisp、python、 Objective-C、ActionScript、Pascal等单词拼写；熟悉Windows、Linux、Mac、 Android、IOS、WP8等系统的开关机；深谙英语六级，计算机二级，初级会计资格等等级考试的发卷收卷流程</h5>
+           欢迎来到TJC的世界~~
           </h1>
+		  <p>
+		      我，一枚普普通通的TJC<br>
+		      身处祖国南端一隅，就读于某不知名高中<br>
+		      没啥特长 / 伪技术宅，爱瞎折腾，苣蒻 / 摸鱼中，等打捞 /<br>
+		      二次元 / <del>绅士</del> / miku赛高~\(≧▽≦)/~ / <a  href="javascript:alert('
+						啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！
+						')" target="_blank">More...</a>
+		  </p>
+		  <ul class="menu">
+              <a goto="#bar">点击这里您可以了解到更多哦！</a>
+          </ul>
         </section>
-            <!-- 下面是链接页 -->
+        
+        
+     <!-- 下面是我的 -->
                 <section id="home">
                     <h1 class="wow bounceInDown" data-wow-delay=0.7s>Tototjc</h1>
                     <h2>A Letter From a Distance</h2>
@@ -132,11 +158,11 @@
                       </p>
                     <div id="open" onClick="show();">[Click Here to OPEN]</div>
                  </section>
-                <!-- 下面是近期文章 -->
+     <!-- 下面是联系方式 -->
                 <section id="contact" class="wow fadeInDown" data-wow-delay=0.7s>
                     <h1>捕抓方式</h1>
                     <div class="items">
-                        <a href="http://blog.tototjc.top:8081/" target="_blank" rel="noopener">
+                        <a target="_blank" rel="noopener">
                             <i class="fas fa-home"></i>
                             <span>Blog</span>
                         </a>
@@ -162,17 +188,41 @@
                         </a>
                     </div>
                 </section>
-                <!-- 下面是关于 -->
+       <!-- 下面是关于 -->
                 <section id="about" class="wow jackInTheBox" data-wow-delay=0.7s>
-                    <h1>关于</h1>
-                    <p>
-                        我，一枚普普通通的TJC<br>
-                        身处祖国南端一隅，就读于某不知名高中<br>
-                        没啥特长 / 伪技术宅，爱瞎折腾，苣蒻 / 摸鱼中，等打捞 /<br>
-                        二次元 / <del>绅士</del> / miku赛高~\(≧▽≦)/~ / <a href="http://blog.tototjc.top:8081/about.html" target="_blank">More...</a>
-                    </p>
+                    <h1>大事记</h1>
+					<div class="time">
+						 <ul class="time-axis"></ul>
+					</div>
+		<script type="text/javascript">
+			//这是要遍历时间轴的数据
+			var dimeAxis=[
+			{
+				date:'2019.08',
+				title:'“网站开通',
+				achievement:''
+			},
+			{
+				date:'2019.10',
+				title:'“第一次重大更新',
+				achievement:''
+			},
+			];
+			
+			
+			$(function(){
+				$.each(dimeAxis,function(i,e){
+					var html='<li class="time-axis-item">'+
+								 '<div class="time-axis-date">'+e.date+'<span></span></div>'+
+								 '<div class="time-axis-title">'+e.title+'</div>'+
+								 '<p class="time-axis-achievement">'+e.achievement+'</p>'+
+							 '</li>';
+					$('.time-axis').append(html);		
+				});
+			});
+		</script>
                 </section>
-                <!-- 下面是捐赠页 -->
+       <!-- 下面是捐赠页 -->
                 <section id="donate" class="wow flipInX" data-wow-delay=0.7s>
                     <h1>来给正在吃土的TJC投食呗！</h1>
                     <div class="donate-img-box wow flipInX" data-wow-delay=0.9s>
@@ -191,7 +241,9 @@
 		<script>
 		document.write(new Date().getFullYear())
         </script>
-        <a href="http://blog.tototjc.top:8081/" target="_blank">
+        <a href="javascript:alert('
+						啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！
+						')" target="_blank">
         Tototjc
         </a>
         All Rights Reserved.
@@ -201,5 +253,18 @@
     </main>
     <script src="./js/main.js"></script>
     <script type="text/javascript" color="0,0,0" pointColor="0,0,0" opacity="1" count="200" zIndex="-1" src="./js/canvas-nest.js"></script>
+	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
+	<script type="text/javascript">
+	    L2Dwidget.init({"display": {
+	        "superSample": 2,
+	        "width": 200,
+	        "height": 400,
+	             "position": "right",
+	                 "hOffset": 0,
+	        "vOffset": 0
+	          }
+	     });
+	</script>
   </body>
 </html>

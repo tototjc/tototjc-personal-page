@@ -1,3 +1,4 @@
+
 $('.menu a').click(function() {
 	target = $(this).attr('goto');
 	switchTo(target);
@@ -14,6 +15,7 @@ function switchTo(target) {
 	$(target).addClass('active');
 }
 
+
 <!--下面是弹出内容及遮罩效果-->
 function show()  //显示隐藏层和弹出层
 {
@@ -28,7 +30,7 @@ function hide()  //去除隐藏层和弹出层
    document.getElementById("hidebox").style.display="none";
 }
 
-<!--网站标题自动判断	设置/*-->
+<!--网站标题自动判断	设置-->
 var title = document.title;
 	// window 失去焦点 
 	window.onblur = function () {
