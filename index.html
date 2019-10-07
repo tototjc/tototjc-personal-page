@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head><title>Tototjc</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
     <meta http-equiv="X-UA-Compatible" content="edge" />
@@ -14,24 +14,40 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="TJC's Home"> 
-    <title>Tototjc</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/all.css">
+	<link rel="stylesheet" href="./css/animation.css">
+	<link rel="stylesheet" href="./css/for_mobile.css" type="text/css" media="screen and (max-width:768px)"/>
 	<link rel="stylesheet" href="./css/minireset.min.css">
     <link href="./css/animate.css" rel="stylesheet">
     <script src="./js/jquery-3.4.1.js"></script>
     <script src="./js/wow.min.js"></script>
-
     <script>
         new WOW().init();
     </script>
+	<!--[if lt IE 9]>
+	<script src="./js/respond.min.js"></script>
+	<script src="./js/html5shiv.js"></script>
+	<![endif]-->
   </head>
+  
   <body oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()' oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
+  <!--[if lt IE 8]>
+     <script type="text/javascript">
+        document.write("<div style='  background-color: gray; border: solid 1px black;float: left;'><p style='font-size: 3em; text-align: center; float: right;'>为了更好的网站体验，建议您使用谷歌、火狐、IE9及以上版本、360极速模式等高版本的浏览器！<br><span style='font-size: 1em;'>火狐浏览器推荐下载地址：<a style='color: #343434; text-decoration: underline'href='http://www.firefox.com.cn/'>http:</a></span><br><span style='font-size: 1em;'>谷歌浏览器推荐下载地址：<a style='color: #343434; text-decoration: underline'href='https://www.google.cn/chrome/'>https:</span></p></div>")
+     </script>
+  <![endif]-->
   <!-- 弹出栏后面的遮罩（默认隐藏） -->
-  <div id="hidebg"></div>
+  <div id="hidebg" onclick="hide();"></div>
+  
   <!-- 下面是进入时的加载条 -->
     <div class="loading">
+		<div class="loader">
+		    <figure>
+		        <img src="./img/tjc.jpg"/>
+		    </figure>
+		</div>
         <div class="spinner">
             <div class="rect1"></div>
             <div class="rect2"></div>
@@ -42,46 +58,29 @@
     </div>
     <!-- 下面是随机壁纸 -->
     <script>
-        var picnum = parseInt(Math.random()*7+1);
+        <!--var picnum = parseInt(Math.random()*7+1);
         document.write('<div class="bak" style="background-image: url(https://api.ixiaowai.cn/api/api.php);"></div>');
     </script>
 	
-    <!--
-	<script>
-		  var optm = prompt('请问我应该怎么称呼你?');
-           if(optm == null||optm =="")
-            {
-			var result = confirm("什么？你还没有输入？你确定要这么做吗？");
-             if(result){//true
-              alert('好吧，那么请允许我用null来称呼你。');
-              } else {//false
-              location.reload();
-              }
-            } else {
-			  alert('好的，' + optm + '！');
-			  }
-    </script>
-     
-     
 <!-- 下面是主要 -->
     <main>
        <div class="content">
        
        
        <!-- 下面是弹出栏（letter信） -->
-            <div id="hidebox" onClick="hide();">
-                    <div class="letter wow flipInX"  data-wow-delay=1s>
+            <div id="hidebox">
+                    <div class="letter wow flipInX" data-wow-delay=1s>
 	                  <p align="left">Dear <script>document.write(optm)</script>,</p>
                       <p align="justify">Welcome to my website,TJC and his dream lie here</p>
                       <p align="left">Best wishes to you!</p>
                       <p align="right">Sincerely yours,<br>
                       TanJC</p>           
-                      <p align="center">[点击关闭]</p>
+                      <p align="center" onclick="hide();" style="color: #737373;">[点击关闭]</p>
                     </div>
              </div>
                 
 <!-- 下面是左边栏 -->
-        <div class="left">
+        <nav class="left">
           <section id="bar">
             <div class="bar wow rollIn" data-wow-delay=1s>
                 <div class="avatar">
@@ -106,9 +105,7 @@
 		<script>
 		document.write(new Date().getFullYear())
         </script></p>
-        <a href="javascript:alert('
-						啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！
-						')" target="_blank">
+        <a onclick="noblog();" target="_blank">
         Tototjc
         </a>
         <p>All Rights Reserved.</p>
@@ -116,18 +113,20 @@
             </div>
        </section>
 
-       </div>
+       </nav>
        
        
  <!-- 下面是右边栏 -->
-            <div class="right">
-            
+    <article class="right">
      <!-- 下面是首页 -->            
         <section id="index" class="active">
 		<div class="my">
           <div class="my-avatar shaky">
            <img class="sparkle spin" src="./img/head.png">
           </div>
+		<div class="title">
+		  <h2>Tototjc's Home</h2>
+		</div>
 		</div>
 				   <br>
 				   <br>
@@ -138,9 +137,7 @@
 		      我，一枚普普通通的TJC<br>
 		      身处祖国南端一隅，就读于某不知名高中<br>
 		      没啥特长 / 伪技术宅，爱瞎折腾，苣蒻 / 摸鱼中，等打捞 /<br>
-		      二次元 / <del>绅士</del> / miku赛高~\(≧▽≦)/~ / <a  href="javascript:alert('
-						啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！
-						')" target="_blank">More...</a>
+		      二次元 / <del>绅士</del> / miku赛高~\(≧▽≦)/~ / <a onclick="noblog();" target="_blank">More...</a>
 		  </p>
 		  <ul class="menu">
               <a goto="#bar">点击这里您可以了解到更多哦！</a>
@@ -149,20 +146,24 @@
         
         
      <!-- 下面是我的 -->
-                <section id="home">
-                    <h1 class="wow bounceInDown" data-wow-delay=0.7s>Tototjc</h1>
+                <section id="home" class="wow bounceInDown" data-wow-delay=0.7s>
+                    <h1>Tototjc</h1>
                     <h2>A Letter From a Distance</h2>
 	                  <p>
                       From：TanJC&emsp;To：<script>document.write(optm)</script><br>
-                      Date：2019-09-01&emsp;Address：Tsankiang<br>
+                      Date：2019-09-01<br>Address：Tsankiang<br>
                       </p>
-                    <div id="open" onClick="show();">[Click Here to OPEN]</div>
+					  <a id="open" onclick="show();" style="color: #666666;">
+					  <p><i class="fas fa-mail-bulk" style="font-size: 1.5em;"></i></p>
+                    <p style="font-size: 0.8em;">[Click Here to OPEN]</p>
+					</a>
                  </section>
+				 
      <!-- 下面是联系方式 -->
                 <section id="contact" class="wow fadeInDown" data-wow-delay=0.7s>
                     <h1>捕抓方式</h1>
                     <div class="items">
-                        <a target="_blank" rel="noopener">
+                        <a onclick="noblog();" target="_blank" rel="noopener">
                             <i class="fas fa-home"></i>
                             <span>Blog</span>
                         </a>
@@ -186,73 +187,128 @@
                             <i class="fab fa-weibo"></i>
                             <span>Weibo</span>
                         </a>
+						<a href="https://t.me/tototjc/" target="_blank" rel="noopener">
+						    <i class="fab fa-telegram"></i>
+						    <span>Telegram</span>
+						</a>
+						<a href="https://tototjc.tumblr.com/" target="_blank" rel="noopener">
+						    <i class="fab fa-tumblr"></i>
+						    <span>Tumblr</span>
+						</a>
                     </div>
                 </section>
+		
        <!-- 下面是关于 -->
-                <section id="about" class="wow jackInTheBox" data-wow-delay=0.7s>
-                    <h1>大事记</h1>
-					<div class="time">
-						 <ul class="time-axis"></ul>
-					</div>
-		<script type="text/javascript">
-			//这是要遍历时间轴的数据
-			var dimeAxis=[
-			{
-				date:'2019.08',
-				title:'“网站开通',
-				achievement:''
-			},
-			{
-				date:'2019.10',
-				title:'“第一次重大更新',
-				achievement:''
-			},
-			];
-			
-			
-			$(function(){
-				$.each(dimeAxis,function(i,e){
-					var html='<li class="time-axis-item">'+
-								 '<div class="time-axis-date">'+e.date+'<span></span></div>'+
-								 '<div class="time-axis-title">'+e.title+'</div>'+
-								 '<p class="time-axis-achievement">'+e.achievement+'</p>'+
-							 '</li>';
-					$('.time-axis').append(html);		
-				});
-			});
-		</script>
-                </section>
+        <section id="about" class="wow fadeInDown" data-wow-delay=0.7s>
+         <h1>大事记</h1>
+		 <ul class="timeline">
+			 <li class="timeline-item">
+				 <span class="time">??-??</span>
+			     <i class="timeline-axis"></i>
+			     <div class="text">
+			         <h3 style="color: #569FFF;">第一栏，留给未来</h3>
+			     </div>
+			 </li>
+			 <li class="timeline-item">
+			         <span class="time">10-7</span>
+			         <span class="etime">国庆假期</span>
+			     <i class="timeline-axis"></i>
+			     <div class="text">
+			         <h3>第一次重大更新，使用v1.0这个版本号谕示新开始</h3>
+			         <p>
+			             bate版在我回校前提交了，我貌似食言了，正式版之前的ta是脆弱的，下周末再见
+			         </p>
+			     </div>
+			 </li>
+		     <li class="timeline-item">
+		             <span class="time">9-28</span>
+		             <span class="etime">明媚的周六</span>
+		         <i class="timeline-axis"></i>
+		         <div class="text">
+		             <h3>v0.30是v1.0重大更新前最后一个的版本号</h3>
+		             <p>
+		                 “gamma-1a”的测试发布了，距离ta的正式版只有一步之遥
+		             </p>
+		         </div>
+		     </li>
+		     <li class="timeline-item">
+		             <span class="time">9-15</span>
+		             <span class="etime">周日早上</span>
+		         <i class="timeline-axis"></i>
+		         <div class="text">
+		             <h3>v0.20更新了</h3>
+		             <p>
+		                 我给ta增加了一个起始页，这是一个完美主义者打磨细节的过程
+		             </p>
+		         </div>
+		     </li>
+		     <li class="timeline-item">
+		             <span class="time">8-31</span>
+		             <span class="etime">早上7点多</span>
+		         <i class="timeline-axis"></i>
+		         <div class="text">
+		             <h3>开学前一天</h3>
+		             <p>
+		                 第一次在githubpages上面提交了ta，我想应该值得ta铭记
+		             </p>
+		         </div>
+		     </li>
+		     <li class="timeline-item">
+		             <span class="time">8-20</span>
+		             <span class="etime">花费了八天</span>
+		         <i class="timeline-axis"></i>
+		         <div class="text">
+		             <h3>暑假接近尾声——而我的项目刚刚开始</h3>
+		             <p>
+		                 早上，看着日历想着这个假期还剩下10天了，我应该留下点什么？
+		             </p>
+		         </div>
+		     </li>
+
+		     <li class="timeline-item">
+		         <i class="timeline-axis"></i>
+		         <div class="text">
+		             <h4 style="color: #569FFF;">（从这下面开始，你找不到更多关于ta的过去）</h4>
+		         </div>
+		     </li>
+		 </ul>
+		 </ul>
+        </section>
+		
        <!-- 下面是捐赠页 -->
-                <section id="donate" class="wow flipInX" data-wow-delay=0.7s>
-                    <h1>来给正在吃土的TJC投食呗！</h1>
-                    <div class="donate-img-box wow flipInX" data-wow-delay=0.9s>
-                        <a href="./img/donate.jpg" target="_blank" rel="noopener">
-                            <img src="./img/donate.jpg" >
-                        </a>
-                    </div>
-                </section>
-            </div>
+        <section id="donate" class="wow flipInX" data-wow-delay=0.7s>
+            <h1>来给正在吃土的TJC投食呗！</h1>
+                <div class="donate-img-box wow flipInX" data-wow-delay=0.9s>
+                    <a href="./img/donate.jpg" target="_blank" rel="noopener">
+                        <img src="./img/donate.jpg" >
+                    </a>
+                </div>
+        </section>
+		
+            </article>
         </div>
-        
-<!-- 下面是移动模式下的页脚 -->
+		
+    	<!-- 下面是移动模式下的页脚 -->
         <footer>
             <div class="copyright-mobile">
         Copyright ©
 		<script>
 		document.write(new Date().getFullYear())
         </script>
-        <a href="javascript:alert('
-						啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！
-						')" target="_blank">
+        <a onclick="noblog();" target="_blank">
         Tototjc
         </a>
         All Rights Reserved.
 
             </div>
         </footer>
+		
     </main>
+	
+
     <script src="./js/main.js"></script>
-    <script type="text/javascript" color="0,0,0" pointColor="0,0,0" opacity="1" count="200" zIndex="-1" src="./js/canvas-nest.js"></script>
+    <script type="text/javascript" color="0,0,0" pointcolor="0,0,0" opacity="1" count="150" zindex="-1" src="./js/canvas-nest.js"></script>
+	
 	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js"></script>
 	<script type="text/javascript" charset="utf-8"  src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
 	<script type="text/javascript">
@@ -260,8 +316,8 @@
 	        "superSample": 2,
 	        "width": 200,
 	        "height": 400,
-	             "position": "right",
-	                 "hOffset": 0,
+	        "position": "right",
+	        "hOffset": 0,
 	        "vOffset": 0
 	          }
 	     });

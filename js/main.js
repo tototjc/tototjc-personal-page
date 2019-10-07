@@ -1,3 +1,19 @@
+$("body").on("touchmove mousemove",function(e){e.preventDefault();});
+
+function askname () {
+  var optm = prompt('请问我应该怎么称呼你?');
+   if(optm == null||optm =="")
+    {
+	var result = confirm("什么？你还没有输入？你确定要这么做吗？");
+     if(result){//true
+      alert('好吧，那么请允许我用null来称呼你。');
+      } else {//false
+      location.reload();
+      }
+    } else {
+	  alert('好的，' + optm + '！');
+	  }
+}
 
 $('.menu a').click(function() {
 	target = $(this).attr('goto');
@@ -28,6 +44,11 @@ function hide()  //去除隐藏层和弹出层
 {
    document.getElementById("hidebg").style.display="none";
    document.getElementById("hidebox").style.display="none";
+}
+
+function noblog () 
+{
+	alert('啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！')
 }
 
 <!--网站标题自动判断	设置-->
@@ -71,7 +92,6 @@ document.oncontextmenu=function(e){
     e.preventDefault();
 
 };
-
 node.addEventListener('contextmenu', function(e){
     e.preventDefault();
   });
