@@ -1,5 +1,3 @@
-$("body").on("touchmove mousemove",function(e){e.preventDefault();});
-
 function askname () {
   var optm = prompt('请问我应该怎么称呼你?');
    if(optm == null||optm =="")

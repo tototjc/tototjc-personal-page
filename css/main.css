@@ -430,7 +430,6 @@ border-radius:50%;
 	margin-top: 1em;
 	height: 300px;
 	overflow-y:scroll;
-	-webkit-overflow-scrolling: touch;
 	text-align: left;/*左对齐必要否则布局错乱*/
     padding-left: 25%;
     padding-top:20px
