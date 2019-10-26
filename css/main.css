@@ -226,7 +226,7 @@ main .content {
 	height: 30em
 }
 
-h1,h2,p{
+h1,h2,h3,p,span{
 	cursor: default
 }
 
@@ -385,11 +385,53 @@ border-radius:50%;
 }
 
 /* 下面是右边展示栏 */
+
+/*下面是黑板报*/
 #home h1 {
 	margin-top: 1em;
 	font-size: 2em;
 }
 
+#home h2 {
+	font-size: 1.3em;
+}
+
+#home .letter-box {
+	left:20%;top: 1em;
+            width: 320px;
+            height: 180px;
+            background: repeating-linear-gradient(
+                45deg, 
+                #E55F56, #E55F56 5px,
+                #FFF 0, #FFF 10px, 
+                #4D8EDE 0, #4D8EDE 15px,
+                #FFF 0, #FFF 20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+#home .letter-box::after {
+        content: 'OK';
+        position: absolute;
+        right: -4px;
+        top: -4px;
+        text-align: center;
+        color: #FFF;
+        width: 20px;
+        height: 20px;
+        font-size: 8px;
+        border-radius: 50%;
+        line-height: 20px;
+        background: #E55F56;
+        }
+#home .letter-container {
+            width: 310px;
+            height: 170px;
+            background: #FFF
+        }
+
+/*下面是联系方式*/
 #contact h1 {
 	margin-top: 1em;
 	font-size: 2em;
@@ -405,7 +447,7 @@ border-radius:50%;
 	padding: .5em 0;
 	border-radius: 1em;
 	display: inline-block;
-	transition: transform .3s
+	transition: transform .3s;
 }
 
 #contact .items a i {
@@ -417,11 +459,29 @@ border-radius:50%;
 	margin-top: 1em
 }
 
-#contact .items a:hover {
-	transform: scale(1.1);
+#contact .items i:hover {
 	animation: shaky-slow 5s infinite ease-in-out;
 }
 
+#contact .items a:hover {
+	transform: scale(1.1);
+}
+
+#contact .tip:hover:before{
+    content: attr(data-tip); /*动态获取数据*/
+    position: absolute;
+    left: 0;
+    width: 220%;
+    height: 30px;
+    font-size: 15px;
+	color: #000;
+    line-height: 30px;
+    background-color: rgba(0,0,0,0.5);
+	word-break:keep-all;
+	white-space:nowrap;
+}
+
+/*下面是关于*/
 #about h1 {
 	margin-top: 1em;
 	font-size: 2em;
@@ -432,7 +492,7 @@ border-radius:50%;
 	height: 300px;
 	overflow-y:scroll;
 	text-align: left;/*左对齐必要否则布局错乱*/
-    padding-left: 25%;
+    padding-left: 20%;
     padding-top:20px
 }
 
@@ -464,7 +524,7 @@ border-radius:50%;
     z-index: 0;
     width: 1px;
     height: 100%;
-	background-color: #569fff;
+	background-color: #66ccff;
 }
 
 #about .timeline-axis {
@@ -474,13 +534,12 @@ border-radius:50%;
     z-index: 10;
     line-height: 20px;
     background-color: #fff;
-    color: #5FB878;
+    color: #66ccff;
     border-radius: 50%;
     -align: center;
-    cursor: pointer;
 	width: 10px;
     height: 10px;
-    border: 1px solid #569fff;
+    border: 1px solid #66ccff;
 }
 
 #about .timeline .text {
@@ -512,7 +571,7 @@ border-radius:50%;
 #about .time {
     position: absolute;
     left: -60px;
-	color: #569FFF;
+	color: #66ccff;
 }
 
 #donate h1 {
@@ -527,10 +586,6 @@ border-radius:50%;
 #donate .donate-img-box img {
 	margin: .5em;
 	width: 25em
-}
-
-#donate p {
-	margin-top: 3em
 }
 
 /* 下面是左边栏 */
@@ -548,6 +603,7 @@ border-radius:50%;
 
 #bar .avatar/*设置鼠标悬浮在头像时的CSS样式*/{ 
     transition: transform 1s ease-out;/*变化时间设置为1秒(变化动作即为下面的图像旋转360度）*/
+	-webkit-transform: -moz-transform 1s ease-out;
     -moz-transition: -moz-transform 1s ease-out;
 	cursor: move;
 }
@@ -574,7 +630,7 @@ border-radius:50%;
 #bar .menu li a.active {
 	font-size: 1.3em;
 	transform: scale(1.15);
-	text-shadow: 0 0 5px #fff;
+	text-shadow: 0 0 5px #66ccff;
 }
 
 #bar .copyright {
@@ -605,12 +661,11 @@ border-radius:50%;
 	}
 /*下面是信件*/
 #hidebox .letter {
-	width: 80%;
+	width: 175%;
 	line-height: 30px;
 	margin: 0 auto;
 	padding: 15px 0 29px;
 	background-color: #f4f39e;
-	font-size: 84%;
 	
 	-moz-border-radius-bottomleft: 20px 500px;
 	-moz-border-radius-bottomright: 500px 30px;
@@ -658,10 +713,10 @@ border-radius:50%;
 	position: relative;
 }
 #hidebox .letter:after {
-	width: 100px;
+	width: 180px;
 	height: 30px;
 	content: " ";
-	margin-left: -50px;
+	margin-left: -90px;
 	border: 1px solid rgba(200, 200, 200, .8);
 	
 	background: rgba(254, 254, 254, .6);
@@ -712,3 +767,4 @@ border-radius:50%;
 #live2dcanvas {
     border: 0 !important;
 }
+

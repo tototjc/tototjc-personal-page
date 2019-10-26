@@ -1,17 +1,3 @@
-function askname () {
-  var optm = prompt('请问我应该怎么称呼你?');
-   if(optm == null||optm =="")
-    {
-	var result = confirm("什么？你还没有输入？你确定要这么做吗？");
-     if(result){//true
-      alert('好吧，那么请允许我用null来称呼你。');
-      } else {//false
-      location.reload();
-      }
-    } else {
-	  alert('好的，' + optm + '！');
-	  }
-}
 
 $('.menu a').click(function() {
 	target = $(this).attr('goto');
@@ -29,8 +15,25 @@ function switchTo(target) {
 	$(target).addClass('active');
 }
 
+//询问来访者名称
+function askname() {
+	var name = prompt('请问我应该怎么称呼你?');
+	if (name == null || name == "") {
+		var result = confirm("什么？你还没有输入？你确定要这么做吗？");
+		if (result) { //true
+			alert('好吧，那么请允许我用null来称呼你。');
+		} else { //false
+			location.reload();
+		}
+	} else {
+		alert('好的，' + name + '！');
+	}
+	document.getElementById('name1').innerHTML = (name)
+	document.getElementById('name2').innerHTML = (name)
+	document.getElementById('name3').innerHTML = (name)
+}
 
-<!--下面是弹出内容及遮罩效果-->
+//弹出内容及遮罩效果
 function show()  //显示隐藏层和弹出层
 {
    var hideobj=document.getElementById("hidebg");
@@ -44,12 +47,16 @@ function hide()  //去除隐藏层和弹出层
    document.getElementById("hidebox").style.display="none";
 }
 
+
+//博客已关闭告示
 function noblog () 
 {
 	alert('啊啊啊，是这样的，您现在请求的页面来自我的博客，但我，我，我们真的非常抱歉，它已经被迫关闭了，真的，因为我的服务器已经莫得钱财续费了……怎么？想重新见到它？还不快考虑给我捐赠吧！')
 }
 
-<!--网站标题自动判断	设置-->
+
+
+//网站标题自动判断设置
 var title = document.title;
 	// window 失去焦点 
 	window.onblur = function () {
@@ -61,7 +68,7 @@ var title = document.title;
 		setTimeout( "document.title=title", 1000 );
 	}
 
-<!--加载栏-->
+//加载栏
 $(document).ready(function() {
 	setTimeout(function() {
 		$(".loading").hide();
@@ -69,27 +76,33 @@ $(document).ready(function() {
 	1500);
 });
 
-<!--首页按钮-->
-$(function(){
-    $('.water-btn').click(function(e){
-        var _this = $(this);
-        var px = e.offsetX;
-        var py = e.offsetY;
-
-        var id=parseInt(Math.random()*1000);
-        _this.append('<div class="water-btn-style" style="top:'+py+'px;left:'+px+'px;background:'+_this.attr('data-clickColor')+'" id="wb_'+id+'"></div>');
-        setTimeout(function(){
-            _this.find('#wb_'+id).remove()
-        },3000)
-    });
-});
-
-<!--移动端禁止长按菜单-->
-document.oncontextmenu=function(e){
-
-    e.preventDefault();
-
+//移动端禁止长按菜单
+window.ontouchstart = function(e) { 
+    e.preventDefault(); 
 };
-node.addEventListener('contextmenu', function(e){
-    e.preventDefault();
-  });
+
+//禁用F12
+document.onkeydown = function () {
+    if (window.event && window.event.keyCode == 123) {
+		alert("F12已经被禁用了哦！怎么，要源码？直说就行了嘛，又不是不给你，但你也要取之有道啊。来，在我Github上就有这个网站的开源，拿走时记得star哦！");
+        event.keyCode = 0;
+        event.returnValue = false;
+        return false;
+    }
+};
+
+function pay(){
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i)=="micromessenger") {
+return "Wechat";
+document.getElementById('payto').href = ('wxp://f2f04IWg20LT8wxmoUEYPIvMotTT1xOpjwpF');
+} else if (ua.match(/QQ/i) == "qq") {
+return "QQ";
+document.getElementById('payto').href = ('https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&ac=CAEQg7muzgsYma_h7AU%3D_xxx_sign&u=3117128835&n=%E3%80%90The+setting+sun%E3%80%91%EF%BC%8Afar');
+} else if (ua.match(/Alipay/i)=="alipay"){
+return "Alipay";
+document.getElementById('payto').href = ('https://qr.alipay.com/fkx07657pepwgzxc4s4rse5');
+} else
+document.getElementById("pay").style.display="none";
+}
+
