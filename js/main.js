@@ -141,10 +141,3 @@ window.onclick = function () { //点击窗口，鼠标右键菜单隐藏
     var menu = document.getElementById("right-menu");
     menu.style.display = "none";
 }
-
-
-function show() {
-	document.getElementById("all").style.display = "flex";
-	document.getElementById("start").style.display = "none";
-	document.getElementById("bg").style.filter = "none";
-}

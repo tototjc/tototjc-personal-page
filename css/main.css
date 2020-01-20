@@ -1,57 +1,40 @@
 /* ----------下面是基础定义---------- */
-* {
-	/*禁止移动端长按菜单*/
-	-webkit-touch-callout: none;
-	/*系统默认菜单被禁用*/
-	-webkit-user-select: none;
-	/*webkit浏览器*/
-	-khtml-user-select: none;
-	/*早期浏览器*/
-	-moz-user-select: none;
-	/*火狐*/
-	-ms-user-select: none;
-	/*IE10*/
-	user-select: none;
-	/*禁止移动端a标签链接点击后蓝色阴影*/
+*{
+/*禁止移动端长按菜单*/
+    -webkit-touch-callout:none;  /*系统默认菜单被禁用*/
+    -webkit-user-select:none; /*webkit浏览器*/
+    -khtml-user-select:none; /*早期浏览器*/
+    -moz-user-select:none;/*火狐*/
+    -ms-user-select:none; /*IE10*/
+    user-select:none;
+/*禁止移动端a标签链接点击后蓝色阴影*/
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-	-webkit-user-select: none;
-	-moz-user-focus: none;
-	-moz-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-focus: none;
+    -moz-user-select: none;
 }
 
 /*解决ios浏览器input框无法输入问题*/
 input {
-	-webkit-user-select: auto;
-	/*webkit浏览器*/
+     -webkit-user-select:auto; /*webkit浏览器*/
 }
 
 html {
 	overflow: hidden;
 }
 
-html,
-body,
-p,
-ul,
-li,
-h1 {
+html,body,p,ul,li,h1 {
 	margin: 0;
 	padding: 0;
 	font-weight: initial;
-	-webkit-font-smoothing: antialiased;
-	/*字体抗锯齿渲染*/
+	-webkit-font-smoothing: antialiased;/*字体抗锯齿渲染*/
 }
 
-h1,
-h2,
-h3,
-p,
-span {
+h1,h2,h3,p,span{
 	cursor: default
 }
 
-ul,
-li {
+ul,li {
 	list-style: none
 }
 
@@ -63,8 +46,7 @@ html {
 	box-sizing: inherit
 }
 
-*:before,
-*:after {
+*:before,*:after {
 	box-sizing: inherit
 }
 
@@ -79,7 +61,10 @@ a {
 }
 
 body {
-	font-family: Lucida Grande, Lucida Sans Unicode, Lucida, Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+	font-family: Lucida Grande,Lucida Sans Unicode,Lucida,Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -89,8 +74,7 @@ body {
 	cursor: url(cursor.cur), auto
 }
 
-.bak,
-body {
+.bak,body {
 	height: 100%;
 	/*背景居中*/
 	background-size: cover;
@@ -99,13 +83,12 @@ body {
 	background-attachment: fixed;
 }
 
-.bak {
+.bak{
 	width: 100%;
 	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: -2;
-	filter: brightness(50%) blur(3px);
 	/*背景缩放动效*/
 	/*
 	opacity: 0;
@@ -114,17 +97,9 @@ body {
 }
 
 /*背景模糊缩放动效*/
-@keyframes fadeInBig {
-	from {
-		opacity: 0;
-		transform: scale(2.5);
-		filter: blur(5px);
-	}
-
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
+@keyframes fadeInBig{
+    from{opacity: 0;transform: scale(2.5); filter: blur(5px);}
+    to{opacity: 1;transform: scale(1);}
 }
 
 /*主要*/
@@ -133,13 +108,13 @@ main {
 }
 
 main .content {
-	display: none;
+	display: flex;
 	margin: 2em 1em;
-	background: hsla(0, 0%, 100%, .8);
+	background: hsla(0,0%,100%,.8);
 	text-align: center;
 	border-radius: 5px;
 	animation: content .5s 2.2s both;
-	box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+	box-shadow: 0 0 20px rgba(0,0,0,.2);
 	overflow: hidden;
 	width: 50em;
 	height: 30em
@@ -164,78 +139,51 @@ main .content {
 }
 
 /* loader头像载入特效 */
-#loading .loader {
-	top: -50%;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	position: fixed;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	transition: opacity .3s, visibility .3s;
+#loading .loader{
+    top: -50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity .3s, visibility .3s;
+}
+#loading .loader.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+#loading .loader img{
+    max-width: 8em;
+    border-radius: 100%;
+    border: 3px #fff solid;
+    box-shadow: 0 0 0 3px #fff;
 }
 
-#loading .loader.hidden {
-	opacity: 0;
-	visibility: hidden;
+#loading .loader:before, .loader:after{
+    content: '';
+    width: 20em;
+    height: 3px;
+    margin: 1em;
+    display: block;
+    background: #fff;
+    animation: loader-line-left 1s both;
 }
-
-#loading .loader img {
-	max-width: 8em;
-	border-radius: 100%;
-	border: 3px #fff solid;
-	box-shadow: 0 0 0 3px #fff;
-}
-
-#loading .loader:before,
-.loader:after {
-	content: '';
-	width: 20em;
-	height: 3px;
-	margin: 1em;
-	display: block;
-	background: #fff;
-	animation: loader-line-left 1s both;
-}
-
-#loading .loader:after {
-	animation: loader-line-right 1s both;
+#loading .loader:after{
+    animation: loader-line-right 1s both;
 }
 
 @keyframes loader-line-left {
-	0% {
-		transform: scaleX(0);
-		transform-origin: left;
-	}
-
-	50% {
-		transform: scaleX(1);
-		transform-origin: left;
-	}
-
-	100% {
-		transform: scaleX(0);
-		transform-origin: right;
-	}
+    0%{ transform: scaleX(0); transform-origin: left; }
+    50%{ transform: scaleX(1); transform-origin: left; }
+    100%{ transform: scaleX(0); transform-origin: right; }
 }
-
 @keyframes loader-line-right {
-	0% {
-		transform: scaleX(0);
-		transform-origin: right;
-	}
-
-	50% {
-		transform: scaleX(1);
-		transform-origin: left;
-	}
-
-	100% {
-		transform: scaleX(0);
-		transform-origin: left;
-	}
+    0%{ transform: scaleX(0);  transform-origin: right; }
+    50%{ transform: scaleX(1);  transform-origin: left; }
+    100%{ transform: scaleX(0);  transform-origin: left; }
 }
 
 /* loading加载条 */
@@ -278,10 +226,7 @@ main .content {
 }
 
 @keyframes stretchdelay {
-
-	0%,
-	40%,
-	to {
+	0%,40%,to {
 		transform: scaleY(.4)
 	}
 
@@ -309,62 +254,21 @@ main .content {
 
 
 /* Left Box */
-
-
 .left {
 	width: 22%;
-	background: rgba(0, 0, 0, .7);
-	padding: 1em;
-	display: flex;
-	flex-direction: column
 }
 
-.left .avatar img {
-	border-radius: 100%;
-	border: 5px solid rgba(255, 255, 255, .3)
+.left section {
+	display: none
 }
 
-.left .avatar
-
-/*设置鼠标悬浮在头像时的CSS样式*/
-	{
-	transition: transform 1s ease-out;
-	/*变化时间设置为1秒(变化动作即为下面的图像旋转360度）*/
-	cursor: move;
+.left section.active {
+	display: block
 }
 
-.left .avatar:hover {
-	transform: rotateZ(360deg);
-	/*图像旋转360度*/
+section {
+	animation: fadenum .5s
 }
-
-.left .menu {
-	margin-top: 2em;
-	flex: 1
-}
-
-.left .menu li {
-	margin-top: 1em
-}
-
-.left .menu li a {
-	color: #fff;
-	cursor: pointer
-}
-
-.left .menu li a.active {
-	font-size: 1.3em
-}
-
-.left .copyright {
-	color: #fff;
-	font-size: 9pt
-}
-
-.left .copyright a {
-	color: #fff
-}
-
 
 /* Right Box */
 .right {
@@ -390,6 +294,139 @@ section {
 /**/
 /* ----------Sections---------- */
 
+/* -----下面是起始页----- */
+#index {}
+
+#index h1 {
+	margin-top: 3em;
+	font-size: 2em;
+}
+
+#index p {
+	margin-top: 1em;
+	font-size: 1.2em;
+}
+
+#index .active {}
+
+#index .my { 
+position:absolute;
+width:70%;
+height:120px;
+border-radius:60px 10px 10px 60px;
+background: rgba(0,0,0,.5);
+}
+
+#index .my .title {
+color: #272727;
+}
+
+#index .my .title h2 {
+font-size: 2em;
+text-align: center;
+}
+
+#index .my .my-avatar {
+position:absolute;
+left:10px;
+top:14px;
+width:90px;
+height:90px;
+border-radius:50%; 
+border:2px solid #ddd; 
+}
+
+#index .my .my-avatar img {
+width:100%;
+height:100%;
+border-radius:50%;
+}
+
+#index .menu {
+	margin-top: 1em;
+    color: #66ccff;
+    /*这里去掉display: flex;*/
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+	/*--*/
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 0;
+    border: solid 1px #66ccff;
+    border-radius: 4px;
+}
+
+#index .menu a {
+    display: block;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    padding: 0 1.25rem 0 1.45rem;
+}
+
+#index .menu a:hover {
+    background-color: rgba(102, 204, 255, 0.075);
+}
+
+#index .menu a:active {
+    background-color: rgba(102, 204, 255, 0.175);
+}
+
+/* -----起始页定义结束----- */
+
+/* -----下面是左边菜单栏----- */
+
+#bar .bar {
+	background: rgba(0,0,0,.7);
+    padding: 1em;
+	flex-direction: column;
+	border-radius: 5px 10px 40px 10px
+}
+
+#bar .avatar img {
+	border-radius: 100%;
+	border: 5px solid rgba(255,255,255,.3)
+}
+
+#bar .avatar/*设置鼠标悬浮在头像时的CSS样式*/{ 
+    transition: transform 1s ease-out;/*变化时间设置为1秒(变化动作即为下面的图像旋转360度）*/
+	cursor: move;
+}
+
+#bar .avatar:hover{
+    transform: rotateZ(360deg);/*图像旋转360度*/
+}
+
+#bar .menu {
+	margin-top: 2em;
+	flex: 1
+}
+
+#bar .menu li {
+	margin-top: 1em
+}
+
+#bar .menu li a {
+	color: #fff;
+}
+
+#bar .menu li a.active {
+	font-size: 1.3em;
+	transform: scale(1.15);
+	text-shadow: 0 0 5px #66ccff;
+}
+
+#bar .copyright {
+	color: #fff;
+	font-size: 9pt;
+}
+
+#bar .copyright a {
+	color: #fff;
+}
+
+/* -----左边菜单栏定义结束----- */
+
 /* -----下面是右边展示栏----- */
 
 /* 板报 */
@@ -403,41 +440,39 @@ section {
 }
 
 #home .letter-box {
-	left: 20%;
-	top: 1em;
-	width: 320px;
-	height: 180px;
-	background: repeating-linear-gradient(45deg,
-			#E55F56, #E55F56 5px,
-			#FFF 0, #FFF 10px,
-			#4D8EDE 0, #4D8EDE 15px,
-			#FFF 0, #FFF 20px);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-}
-
+	left:20%;top: 1em;
+            width: 320px;
+            height: 180px;
+            background: repeating-linear-gradient(
+                45deg, 
+                #E55F56, #E55F56 5px,
+                #FFF 0, #FFF 10px, 
+                #4D8EDE 0, #4D8EDE 15px,
+                #FFF 0, #FFF 20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 #home .letter-box::after {
-	content: 'OK';
-	position: absolute;
-	right: -4px;
-	top: -4px;
-	text-align: center;
-	color: #FFF;
-	width: 20px;
-	height: 20px;
-	font-size: 8px;
-	border-radius: 50%;
-	line-height: 20px;
-	background: #E55F56;
-}
-
+        content: 'OK';
+        position: absolute;
+        right: -4px;
+        top: -4px;
+        text-align: center;
+        color: #FFF;
+        width: 20px;
+        height: 20px;
+        font-size: 8px;
+        border-radius: 50%;
+        line-height: 20px;
+        background: #E55F56;
+        }
 #home .letter-container {
-	width: 310px;
-	height: 170px;
-	background: #FFF
-}
+            width: 310px;
+            height: 170px;
+            background: #FFF
+        }
 
 /* 联系方式 */
 #contact h1 {
@@ -450,7 +485,7 @@ section {
 }
 
 #contact .items a {
-	color: rgba(81, 81, 81, .9);
+	color: rgba(81,81,81,.9);
 	width: 20%;
 	padding: .5em 0;
 	border-radius: 1em;
@@ -462,8 +497,7 @@ section {
 	font-size: 3em
 }
 
-#contact .items a i,
-#contact .items a span {
+#contact .items a i,#contact .items a span {
 	display: block;
 	margin-top: 1em
 }
@@ -476,19 +510,18 @@ section {
 	transform: scale(1.1);
 }
 
-#contact .tip:hover:before {
-	content: attr(data-tip);
-	/*动态获取数据*/
-	position: absolute;
-	left: 0;
-	width: 220%;
-	height: 30px;
-	font-size: 15px;
+#contact .tip:hover:before{
+    content: attr(data-tip); /*动态获取数据*/
+    position: absolute;
+    left: 0;
+    width: 220%;
+    height: 30px;
+    font-size: 15px;
 	color: #000;
-	line-height: 30px;
-	background-color: rgba(0, 0, 0, 0.5);
-	word-break: keep-all;
-	white-space: nowrap;
+    line-height: 30px;
+    background-color: rgba(0,0,0,0.5);
+	word-break:keep-all;
+	white-space:nowrap;
 }
 
 /* 大事记 */
@@ -500,88 +533,87 @@ section {
 #about .timeline {
 	margin-top: 1em;
 	height: 300px;
-	overflow-y: scroll;
-	text-align: left;
-	/*左对齐必要否则布局错乱*/
-	padding-left: 20%;
-	padding-top: 20px
+	overflow-y:scroll;
+	text-align: left;/*左对齐必要否则布局错乱*/
+    padding-left: 20%;
+    padding-top:20px
 }
 
 #about .timeline-item {
-	position: relative;
-	padding-bottom: 20px;
-	margin-top: -12px;
+    position: relative;
+    padding-bottom: 20px;
+    margin-top:-12px;
 }
 
 
 #about .timeline-item:first-child::before {
-	display: block;
+    display: block;
 }
 
 #about .timeline-item:last-child::before {
-	content: '';
-	position: absolute;
-	left: 5px;
-	top: 0;
-	z-index: 0;
-	width: 0;
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0;
+    z-index: 0;
+    width: 0;
 }
 
 #about .timeline-item::before {
-	content: '';
-	position: absolute;
-	/*left: 1px;*/
-	top: 0;
-	z-index: 0;
-	width: 1px;
-	height: 100%;
+    content: '';
+    position: absolute;
+    /*left: 1px;*/
+    top: 0;
+    z-index: 0;
+    width: 1px;
+    height: 100%;
 	background-color: #66ccff;
 }
 
 #about .timeline-axis {
-	position: absolute;
-	left: -5px;
-	top: 0;
-	z-index: 10;
-	line-height: 20px;
-	background-color: #fff;
-	color: #66ccff;
-	border-radius: 50%;
-	-align: center;
+    position: absolute;
+    left: -5px;
+    top: 0;
+    z-index: 10;
+    line-height: 20px;
+    background-color: #fff;
+    color: #66ccff;
+    border-radius: 50%;
+    -align: center;
 	width: 10px;
-	height: 10px;
-	border: 1px solid #66ccff;
+    height: 10px;
+    border: 1px solid #66ccff;
 }
 
 #about .timeline .text {
-	padding-left: 25px;
-	line-height: 22px;
-	font-size: 14px;
-	color: #666;
-	top: -10px;
+    padding-left: 25px;
+    line-height: 22px;
+    font-size: 14px;
+    color: #666;
+    top:-10px;
 }
 
 #about h3 {
-	position: relative;
-	margin-bottom: 10px;
+    position: relative;
+    margin-bottom: 10px;
 	font-size: 1.2em;
 	color: #272727;
 }
 
-#about p {
+#about p{
 	font-size: 1em;
 }
 
 #about .etime {
-	top: 45%;
-	left: -70px;
-	position: absolute;
+    top: 45%;
+    left: -70px;
+    position: absolute;
 	font-size: 0.7em;
 }
 
 #about .time {
-	position: absolute;
-	left: -60px;
+    position: absolute;
+    left: -60px;
 	color: #66ccff;
 }
 
@@ -611,30 +643,23 @@ section {
 /* -----下面是信件----- */
 
 /* 背景遮罩 */
-#hidebg {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	background-color: #000;
-	width: 100%;
-	/*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
-	filter: alpha(opacity=60);
-	/*设置透明度为60%*/
-	opacity: 0.6;
-	/*非IE浏览器下设置透明度为60%*/
-	display: none;
-	/* 正常情况下不显示 */
-	z-Index: 2;
-}
-
+#hidebg { position:absolute;left:0px;top:0px;
+      background-color:#000;
+      width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+      filter:alpha(opacity=60);  /*设置透明度为60%*/
+      opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+      display:none; /* 正常情况下不显示 */
+      z-Index:2;
+	  }
+	  
 /* 弹出栏 */
 #hidebox {
-	position: absolute;
-	display: none;
-	cursor: default;
-	z-Index: 3;
-}
-
+	position:absolute;
+	display:none;
+	cursor:default;
+	z-Index:3;
+	}
+	
 /* 信件内容 */
 #hidebox .letter {
 	width: 175%;
@@ -642,45 +667,44 @@ section {
 	margin: 0 auto;
 	padding: 15px 0 29px;
 	background-color: #f4f39e;
-
+	
 	border-bottom-left-radius: 20px 500px;
 	border-bottom-right-radius: 500px 30px;
 	border-top-right-radius: 5px 100px;
-
-	background:
-		repeating-linear-gradient(top,
+		
+	background: 
+		repeating-linear-gradient(
+			top,
 			#fcf59b,
 			#fcf59b 29px,
-			#81cbbc 30px);
+			#81cbbc 30px
+		);
 
 	box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.2);
-
+	
 	text-shadow: 0 1px 0 #F6EF97;
 	position: relative;
 }
-
 #hidebox .letter:after {
 	width: 180px;
 	height: 30px;
 	content: " ";
 	margin-left: -90px;
 	border: 1px solid rgba(200, 200, 200, .8);
-
+	
 	background: rgba(254, 254, 254, .6);
 	box-shadow: 0px 0 3px rgba(0, 0, 0, 0.1);
-
-	transform: rotate(-5deg);
-
+	
+    transform: rotate(-5deg);
+	
 	position: absolute;
 	left: 50%;
 	top: -15px;
 }
-
 #hidebox .letter h2 {
 	margin: 15px 0;
-	text-align: center;
+	text-align:center;
 }
-
 #hidebox .letter p {
 	margin: 30px 0;
 	padding: 0 2em;
@@ -698,23 +722,19 @@ section {
 	right: 25px;
 	z-index: 100;
 }
-
 #side-bar a {
 	width: 50px;
 	height: 50px;
 	display: inline-block;
-	background-color: rgba(0, 0, 0, .5);
+	background-color: rgba(0,0,0,.5);
 	margin-bottom: 3px;
 }
-
 #side-bar a:hover {
-	background-color: rgba(0, 0, 0, .9);
+	background-color: rgba(0,0,0,.9);
 }
-
 #side-bar .ad:hover .tips {
 	display: block;
 }
-
 #side-bar .ad .tips {
 	height: 200px;
 	width: 300px;
@@ -723,23 +743,22 @@ section {
 	position: absolute;
 	right: 70px;
 	top: -55px;
-	background: rgba(0, 0, 0, .5);
+	background: rgba(0,0,0,.5);
 	text-align: center;
 	border-radius: 5px;
 	display: none;
 }
-
 #side-bar .ad::after {
-	content: '';
-	position: absolute;
-	right: -4px;
-	top: -4px;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background: #ff253a;
+        content: '';
+        position: absolute;
+        right: -4px;
+        top: -4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ff253a;
 }
-
+		
 #side-bar .tips h1 {
 	font-size: 2em;
 	color: #fff;
@@ -752,7 +771,7 @@ section {
 
 #side-bar a i {
 	font-size: 2em;
-	color: rgba(255, 255, 255, .5);
+	color: rgba(255,255,255,.5);
 	padding: 8px;
 }
 
@@ -768,102 +787,33 @@ section {
 
 /* -----页脚定义结束----- */
 
-#right-menu {
-	position: absolute;
-	width: 150px;
-	height: auto;
-	border: 1px #ccc solid;
-	display: none;
+ #right-menu{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    border: 1px #ccc solid;
+    display: none;
 	background-color: #fff;
-	padding: 2px 0;
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    padding:2px 0;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.2);
 	z-index: 200;
 }
 
-#right-menu .menu-item {
-	height: 25px;
-	margin: 4px 0;
-	padding: 0 10px;
+#right-menu .menu-item{
+    height: 25px;
+    margin:4px 0; 
+    padding:0 10px;
 }
 
 #right-menu .menu-item a {
 	color: #141414;
 }
 
-#right-menu .menu-item:hover {
-	background-color: #ccc;
+#right-menu .menu-item:hover{
+    background-color: #ccc;
 }
 
-#right-menu .menu-item-separator {
-	border-top: 1px #ccc solid;
-	height: 1px;
+#right-menu .menu-item-separator{
+    border-top:1px #ccc solid;
+    height: 1px;
 }
-
-
-
-
-/* -----下面是start页----- */
-
-
-#start {
-	left: 10em;
-	width: 80em;
-	height: 40em;
-	text-align: right;
-	position: relative;
-}
-
-#start h1 {
-	margin-top: 1em;
-	font-size: 2em;
-	color: #fff;
-}
-
-#start .line {
-	margin-top: 1em;
-	width: 500px;
-	border: 1px solid #fff;
-}
-
-#start p {
-	margin-top: 1em;
-	font-size: 1.2em;
-	color: #fff;
-}
-
-#start .avatar img {
-	width: 200px;
-	height: 200px;
-}
-
-#start ul {
-	margin-top: 1em;
-	color: #66ccff;
-	/*display: flex;*/
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	/*--*/
-	margin-bottom: 0;
-	list-style: none;
-	padding-left: 0;
-	border: solid 1px #66ccff;
-	border-radius: 4px;
-}
-
-#start ul a {
-	display: block;
-	height: 2.75rem;
-	line-height: 2.75rem;
-	padding: 0 1.25rem 0 1.45rem;
-}
-
-#start ul a:hover {
-	background-color: rgba(102, 204, 255, 0.075);
-}
-
-#start ul a:active {
-	background-color: rgba(102, 204, 255, 0.175);
-}
-
-/* -----start页定义结束----- */
