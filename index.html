@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans">
 	<head>
 		<title>Tototjc</title>
 		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="renderer" content="webkit"/>
+		<meta name="force-rendering" content="webkit"/>  
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>  
 		<meta http-equiv="X-UA-Compatible" content="edge" />
 		<meta http-equiv="Cache-Control" content="no-transform">
 		<meta http-equiv="Cache-Control" content="no-siteapp">
@@ -15,63 +17,77 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="description" content="TJC's Home">
-		<link rel="icon" type="image/x-icon" href="./favicon.ico">
-		<link rel="stylesheet" href="./css/main.css">
-		<link rel="stylesheet" href="./css/default.css">
-		<link rel="stylesheet" href="./css/for_mobile.css">
-		<link rel="stylesheet" href="./fontawesome-free-5.10.2-web/css/all.css">
-		<link rel="stylesheet" href="./css/animation.css">
-		<link rel="stylesheet" href="./css/minireset.min.css">
-		<link rel="stylesheet" href="./css/animate.css">
+		<link id="changeicon" rel="icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./css/main.css" type="text/css">
+		<link rel="stylesheet" href="./css/for_mobile.css" type="text/css">
+		<link rel="stylesheet" href="./fontawesome-free-5.11.2-web/css/all.css" type="text/css">
+		<link rel="stylesheet" href="./css/animation.css" type="text/css">
+		<link rel="stylesheet" href="./css/minireset.min.css" type="text/css">
 		<script src="./js/jquery-3.4.1.js"></script>
-		<script src="./js/wow.min.js"></script>
 		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<script>/*@cc_on document.write('\x3Cscript id="_iealwn_js" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); @*/</script>
 		<noscript>
-			<div style='z-index: 1000; background-color: #fff; position: fixed; width: 100%;'>
-				<strong style='font-size: 3em; text-align: center;'>We're sorry but our index doesn't work properly without JavaScript enabled. Please enable it to continue.
+			<div style="z-index: 1000; background-color: #fff; position: fixed; width: 100%;">
+				<strong style="font-size: 3em; text-align: center;">We're sorry but our index doesn't work properly without JavaScript enabled. Please enable it to continue.
 					<br>对不起，您的浏览器不支持或已禁用JavaScript，本页面需要JavaScript的支持。
 				</strong>
 			</div>
 		</noscript>
-		<script>
-			new WOW().init();
-		</script>
+		<noscript>
+			<iframe src="*.htm"></iframe>
+		</noscript>
 		<!--[if lt IE 9]>
 			<script src="./js/respond.min.js"></script>
 			<script src="./js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-	<body oncontextmenu='return false';ondragstart='return false';onselectstart='return false';onselect='document.selection.empty()';oncopy='document.selection.empty()';onbeforecopy='return false';onmouseup='document.selection.empty()';>
-		<!--[if lt IE 8]>
-			<script type="text/javascript">document.write("<div style='  background-color: gray; border: solid 1px black;float: left;'><p style='font-size: 3em; text-align: center; float: right;'>为了更好的网站体验，建议您使用谷歌、火狐、IE9及以上版本、360极速模式等高版本的浏览器！<br><span style='font-size: 1em;'>火狐浏览器推荐下载地址：<a style='color: #343434; text-decoration: underline'href='http://www.firefox.com.cn/'>http:</a></span><br><span style='font-size: 1em;'>谷歌浏览器推荐下载地址：<a style='color: #343434; text-decoration: underline'href='https://www.google.cn/chrome/'>https:</span></p></div>")</script>
-		<![endif]-->
-		<noscript>
-			<iframe src="*.htm"></iframe>
-		</noscript>
-		<!-- 弹出栏后面的遮罩（默认隐藏） -->
-		<div id="hidebg" onclick="hide();"></div>
+	<body ondragstart="return false" onselectstart="return false" oncopy="return false">
 		<!-- 下面是进入时的加载条 -->
-		<div class="loading">
+		<div id="loading">
 			<div class="loader">
-				<figure>
-					<img src="./img/tjc.png" /></figure>
+					<img src="./img/tjc.png" />
 			</div>
 			<div class="spinner">
-				<div class="rect1"></div>
-				<div class="rect2"></div>
-				<div class="rect3"></div>
-				<div class="rect4"></div>
-				<div class="rect5"></div>
+				<span class="rect1"></span>
+				<span class="rect2"></span>
+				<span class="rect3"></span>
+				<span class="rect4"></span>
+				<span class="rect5"></span>
 			</div>
 		</div>
+		<!-- 弹出栏后面的遮罩（默认隐藏） -->
+		<div id="hidebg" onclick="hide();"></div>
 		<!-- 下面是随机壁纸 -->
-		<div class="bak" style="background-image: url(https://random.52ecy.cn/randbg.php);"></div>
+		<div id="bg" class="bak"></div>
+		<!-- github -->
+		<a href="https://github.com/tototjc/" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 		<!-- 下面是主要 -->
 		<main>
-			<div class="content">
+
+
+		<articl id="start">
+			<div class="avatar">
+			<img src="./img/tjc.png"></div>
+			<li class="line"></li>
+			<h1>欢迎来到TJC的世界~~</h1>
+			<p>我，一枚普普通通的TJC
+				<br>身处祖国南端一隅，就读于某不知名高中
+				<br>没啥特长 / 伪技术宅，爱瞎折腾，苣蒻 / 摸鱼中，等打捞 /
+				<br>二次元 /
+				<del>绅士</del>/ miku赛高~\(≧▽≦)/~ /
+				<a onclick="noblog();">More...</a>
+			</p>
+			<li class="line"></li>
+			<ul>
+				<a onclick="show()">点击这里您可以了解到更多哦！</a>
+			</ul>
+		</articl>
+
+
+			<div class="content" id="all">
 				<!-- 下面是弹出栏（letter信） -->
 				<div id="hidebox">
-					<div class="letter wow flipInX" data-wow-delay=1s>
+					<div class="letter">
 						<p align="left">Dear
 							<span id="name1"></span>,</p>
 						<p align="justify">Welcome to my website,TJC and his dream lie here</p>
@@ -83,11 +99,9 @@
 				</div>
 				<!-- 下面是左边栏 -->
 				<nav class="left">
-					<section id="bar">
-						<div class="bar wow rollIn" data-wow-delay=1s>
 							<div class="avatar">
 								<img src="./img/head.png"></div>
-							<ul class="menu wow bounceInDown" data-wow-delay=1.7s>
+							<ul class="menu">
 								<li>
 									<a goto="#home">
 										<i class="fas fa-home"></i>&nbsp;HOME</a>
@@ -111,33 +125,11 @@
 								<a onclick="noblog();" target="_blank">Tototjc</a>
 								<p>All Rights Reserved.</p>
 							</div>
-						</div>
-					</section>
 				</nav>
 				<!-- 下面是右边栏 -->
 				<article class="right">
-					<!-- 下面是首页 -->
-					<section id="index" class="active">
-						<div class="my">
-							<div class="my-avatar shaky">
-								<img class="sparkle spin" src="./img/head.png"></div>
-							<div class="title">
-								<h2>Tototjc's Home</h2></div>
-						</div>
-						<br>
-						<br>
-						<h1 class="wow bounceInDown" data-wow-delay=1.25s>欢迎来到TJC的世界~~</h1>
-						<p>我，一枚普普通通的TJC
-							<br>身处祖国南端一隅，就读于某不知名高中
-							<br>没啥特长 / 伪技术宅，爱瞎折腾，苣蒻 / 摸鱼中，等打捞 /
-							<br>二次元 /
-							<del>绅士</del>/ miku赛高~\(≧▽≦)/~ /
-							<a onclick="noblog();" target="_blank">More...</a></p>
-						<ul class="menu">
-							<a goto="#bar" onclick="askname ()">点击这里您可以了解到更多哦！</a></ul>
-					</section>
 					<!-- 下面是我的 -->
-					<section id="home" class="wow bounceInDown" data-wow-delay=0.7s>
+					<section id="home" class="active">
 						<h1>TJC的黑板报</h1>
 						<div>
 							<p style="color: #555555">【这里还没有内容哦！不过我们找到了这个，看——】</p>
@@ -149,7 +141,7 @@
 							<br>By：TanJC&emsp;From：Tsankiang
 							<br>To：<span id="name3"></span>&emsp;At：<script>document.write(returnCitySN["cip"]);</script>
 						</p>
-						<a id="open" onclick="show();" style="color: #666666;">
+						<a id="openletter" onclick="show();" style="color: #666666;">
 							<p>
 								<i class="fas fa-mail-bulk" style="font-size: 1.5em;"></i>
 							</p>
@@ -159,7 +151,7 @@
 						 </div>
 					</section>
 					<!-- 下面是联系方式 -->
-					<section id="contact" class="wow fadeInDown" data-wow-delay=0.7s>
+					<section id="contact">
 						<h1>捕抓方式</h1>
 						<div class="items">
 							<a onclick="noblog();" target="_blank" rel="noopener" data-tip="抱歉,什么也没有哦,博客已经关闭了!" class="tip">
@@ -189,7 +181,7 @@
 						</div>
 					</section>
 					<!-- 下面是关于 -->
-					<section id="about" class="wow fadeInDown" data-wow-delay=0.7s>
+					<section id="about">
 						<h1>大事记</h1>
 						<ul class="timeline">
 							<li class="timeline-item">
@@ -199,6 +191,14 @@
 									<h3 style="color: #66ccff;">第一栏，留给未来</h3></div>
 							</li>
 							<li class="timeline-item">
+								<span class="time">11-23</span>
+								<span class="etime">昨日小雪</span>
+								<i class="timeline-axis"></i>
+								<div class="text">
+									<h3>更新</h3>
+									<p>太多东西了……</p>
+								</div>
+							</li>
 							<li class="timeline-item">
 								<span class="time">10-7</span>
 								<span class="etime">国庆假期</span>
@@ -251,19 +251,29 @@
 								</div>
 							</li>
 						</ul>
-						</ul>
 					</section>
 					<!-- 下面是捐赠页 -->
-					<section id="donate" class="wow flipInX" data-wow-delay=0.7s>
+					<section id="donate">
 						<h1>拯救吃土的TJC！！！</h1>
-						<div class="donate-img-box wow flipInX" data-wow-delay=0.9s>
+						<div class="donate-img-box">
 							<a href="./img/donate.jpg" target="_blank" rel="noopener">
-								<img src="./img/donate.jpg">
+								<img src="./img/donate.jpg" alt="TJC的支付方式">
 							</a>
 						</div>
-						<div id="pay">您正在使用<script>document.write(ua)</script>访问我们的网站<a id="payto">【点击这里为我们捐赠】</a></div>
 					</section>
 				</article>
+			</div>
+			<!-- 下面是页脚的侧边栏 -->
+			<div id="side-bar">
+				<a class="ad" title="推广">
+					<i class="fas fa-bullhorn"></i>
+				<div class="tips">
+					<h1>广而告之</h1>
+					<p>由于各种不可抗拒的因素，目前我们对移动端兼容还莫得完善，所以为了避免带来不好的体验，我们干脆<span style="color: #ff0000;">直接把移动端兼容砍了</span>（干脆利落.jpg），特此告知！</p>
+				</div>
+				</a>
+				<ul class="menu"><a goto="#index" onclick="turn()"><i class="fas fa-caret-square-left" title="回到首页"></i></a></ul>
+			<a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=tanjc2004@outlook.com" target="_blank" title="通过QQ邮箱"><i class="fas fa-at"></i></a>
 			</div>
 			<!-- 下面是移动模式下的页脚 -->
 			<footer>
@@ -272,9 +282,18 @@
 					<a onclick="noblog();" target="_blank">Tototjc</a>All Rights Reserved.
 				</div>
 			</footer>
-		</main>
-		<!--main主要end-->
-		<script src="./js/main.js"></script>
+			</main>
+			<!--main主要end-->
+			<!-- 下面是自定义鼠标右键菜单 -->
+			<ul id="right-menu">
+			<li class="menu-item"><ul class="menu"><a goto="#index" onclick="turn()">返回起始页</a></ul></li>
+			<li class="menu-item"><a href="javascript:location.reload();">刷新页面</a></li>
+			<li class="menu-item-separator"></li>
+			<li class="menu-item"><a id="viewbg" target="_blank">查看当前背景图片</a></li>
+			<li class="menu-item"><a onclick="bg('0s')">随机更换背景</a></li>
+			</ul>
+		<!-- 下面是js引入 -->
+		<script type="text/javascript" src="./js/main.js"></script>
 		<script type="text/javascript" color="0,0,0" pointcolor="0,0,0" opacity="1" count="150" zindex="-1" src="./js/canvas-nest.js"></script>
 </body>
 </html>
